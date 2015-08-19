@@ -15,4 +15,3 @@ config files for my arch install
        -osssssso.      :ssssssso.      Icon Theme: gnome
       :osssssss/        osssso+++.     Font: Sans 10
      /ossssssss/        +ssssooo/-     CPU: Intel Core i7-5500U CPU @ 2.394GHz
-   `/ossssso+/:-        -:/+osssso+-   RAM: 535MiB / 3957MiB
