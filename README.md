@@ -1,6 +1,8 @@
 # arch-config-2015
 config files for my arch install
 
+also https://github.com/Djent-/setres/
+
                   .o+`                 
                  `ooo/                 OS: Arch Linux 
                 `+oooo:                Kernel: x86_64 Linux 4.1.5-1-ARCH
