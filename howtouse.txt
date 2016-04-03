@@ -13,3 +13,8 @@ If the wifi doesn't work, try
 Brightness:
   Set using sxhkd to super + F5 to decrease by 20%, super + F6 to increase by 20%
   This uses xbacklight
+
+Add a desktop to bspwm if it only has one:
+  bspc monitor -a Desktop2
+  Then, super+{1,9} to switch desktops
+  Use super+shift+{1,9} to move the focussed node to the selected desktop
