@@ -1,0 +1,15 @@
+Battery percentage:
+  acpi -i
+  
+If the wifi doesn't work, try
+  ip link
+  sudo iw dev wlp2s0 link (this worked definitely before)
+  wpa_supplicant
+  NetworkManager
+
+7z:
+  7z x -0<>directory name> <archive name>
+  
+Brightness:
+  Set using sxhkd to super + F5 to decrease by 20%, super + F6 to increase by 20%
+  This uses xbacklight
