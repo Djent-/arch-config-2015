@@ -4,7 +4,7 @@ Boot fresh VM
 ip link
 systemctl restart dhcpcd.service
 timedatectl set-ntp true
-timedatectl status
+timedatectl status      # sanity check
 lsblk
 parted /dev/sda
 mklabel msdos
@@ -42,7 +42,7 @@ sudo pacman -S alsa-utils
 sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa ttf-dejavu samba smbclient networkmanager networkmanager-vpnc networkmanager-pptp networkmanager-openconnect network-manager-applet gvfs gvfs-smb sshfs
 # previous installs x window system, fonts, network stuff > 500MB installed
 sudo systemctl enable NetworkManager
-lspci -k | grep -A 2 -i "VGA" 					# show graphics card
+lspci -k | grep -A 2 -i "VGA" 					# show graphics card sanity check
 sudo pacman -S virtualbox-guest-utils			# for virtualbox only
 sudo pacman -S xf86-video-vmware xf85-input-vmmouse # for vmware only
 sudo pacman -S bspwm sxhkd dmenu
@@ -50,7 +50,7 @@ nano .xinitrc						# add sxhkd & \n exec bspwm to default (look it up)
 mkdir .config
 mkdir .config/bspwm
 mkdir .config/sxhkd
-nano .config/bspwm/bspwmrc						# add bspwm config
-nano .config/sxhkd/sxhkdrc						# add sxhkd config
+curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/bspwmrc > bspwmrc						# add bspwm config
+curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/sxhkdrc > bspwmrc						# add sxhkd config
 sudo pacman -S firefox rxvt-unicode zsh ranger
 sudo pacman -S mpd mpc ncmpcpp			# music player + etc
