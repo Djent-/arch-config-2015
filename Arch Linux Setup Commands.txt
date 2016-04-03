@@ -54,3 +54,7 @@ curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/bspwmrc > bsp
 curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/sxhkdrc > bspwmrc						# add sxhkd config
 sudo pacman -S firefox rxvt-unicode zsh ranger
 sudo pacman -S mpd mpc ncmpcpp			# music player + etc
+
+Install stylish and Twily's powerline firefox
+Install oh-my-zsh and theme
+install scite and custom theme
