@@ -50,10 +50,12 @@ nano .xinitrc						# add sxhkd & \n exec bspwm to default (look it up)
 mkdir .config
 mkdir .config/bspwm
 mkdir .config/sxhkd
-curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/bspwmrc > bspwmrc						# add bspwm config
-curl https://raw.githubusercontent.com/Djent-arch-config-2015/2016/sxhkdrc > bspwmrc						# add sxhkd config
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/bspwmrc > bspwmrc						# add bspwm config
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/sxhkdrc > bspwmrc						# add sxhkd config
 sudo pacman -S firefox rxvt-unicode zsh ranger
 sudo pacman -S mpd mpc ncmpcpp			# music player + etc
+echo $SHELL
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 Install stylish and Twily's powerline firefox
 Install oh-my-zsh and theme
