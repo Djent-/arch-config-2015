@@ -39,14 +39,17 @@ reboot
 login as non-root user
 sudo dhcpcd
 sudo pacman -S alsa-utils
-sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa ttf-dejavu samba smbclient networkmanager networkmanager-vpnc networkmanager-pptp networkmanager-openconnect network-manager-applet gvfs gvfs-smb sshfs
+sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa ttf-dejavu samba smbclient networkmanager 
+    networkmanager-vpnc networkmanager-pptp networkmanager-openconnect network-manager-applet 
+    gvfs gvfs-smb sshfs git go bspwm sxhkd dmenu
 # previous installs x window system, fonts, network stuff > 500MB installed
 sudo systemctl enable NetworkManager
 lspci -k | grep -A 2 -i "VGA" 					# show graphics card sanity check
 sudo pacman -S virtualbox-guest-utils			# for virtualbox only
 sudo pacman -S xf86-video-vmware xf85-input-vmmouse # for vmware only
-sudo pacman -S bspwm sxhkd dmenu
-nano .xinitrc						# add sxhkd & \n exec bspwm to default (look it up)
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.xinitrc > .xinitrc
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.Xresources > .Xresources
+xrdb -merge ./.Xresources
 mkdir .config
 mkdir .config/bspwm
 mkdir .config/sxhkd
