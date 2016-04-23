@@ -60,6 +60,7 @@ sudo pacman -S mpd mpc ncmpcpp			# music player + etc
 echo $SHELL
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+
 Install stylish and Twily's powerline firefox
-Install oh-my-zsh and theme
 install scite and custom theme
+Setup GOPATH and add it to PATH
