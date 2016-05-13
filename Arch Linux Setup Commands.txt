@@ -64,6 +64,8 @@ mkdir build-tars
 mkdir .nano
 curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.nanorc > .nanorc
 curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/go.nanorc > .nano/go.nanorc
+go get github.com/nsf/termbox-go
+go install github.com/djent-/go-diags
 
 Install stylish and Twily's powerline firefox
 install scite and custom theme
