@@ -12,7 +12,7 @@ super + shift + 4
 super + b
 	bspc desktop -B
 
-super + {s,f,t}
+super + {f,u,t}
 	bspc node -t {floating,fullscreen,tiled}
 
 super + {grave,Tab}
@@ -78,7 +78,7 @@ super + @button{1-3}
 	bspc pointer -u
 
 # move a floating window
-super + {Left,Down,Up,Right}
+super + {a,s,w,d}
 	bspc node -v {-20 0, 0 20, 0 -20, 20 0}
 
 # increase gap between windows
