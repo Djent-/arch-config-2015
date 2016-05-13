@@ -59,7 +59,11 @@ sudo pacman -S firefox rxvt-unicode zsh ranger
 sudo pacman -S mpd mpc ncmpcpp			# music player + etc
 echo $SHELL
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+mkdir build-repos
+mkdir build-tars
+mkdir .nano
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.nanorc > .nanorc
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/go.nanorc > .nano/go.nanorc
 
 Install stylish and Twily's powerline firefox
 install scite and custom theme
