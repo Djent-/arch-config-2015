@@ -18,3 +18,4 @@ Add a desktop to bspwm if it only has one:
   bspc monitor -a Desktop2
   Then, super+{1,9} to switch desktops
   Use super+shift+{1,9} to move the focussed node to the selected desktop
+  Be careful because super+shift+4 is my way of pressing alt+f4 in a vm
