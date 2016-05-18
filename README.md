@@ -1,19 +1,24 @@
 # arch-config-2015
 config files for my arch install
 
-also https://github.com/Djent-/setres/
-
-                  .o+`                 
+```
+                   -`
+                  .o+`                 watermelon@workstation
                  `ooo/                 OS: Arch Linux 
-                `+oooo:                Kernel: x86_64 Linux 4.1.5-1-ARCH
-               `+oooooo:               Uptime: 35m
-               -+oooooo+:              Packages: 527
-             `/:-:++oooo+:             Shell: bash 4.3.39
-            `/++++/+++++++:            Resolution: 1600x804
-           `/++++++++++++++:           DE: XFCE4
-          `/+++ooooooooooooo/`         WM: Xfwm4
-         ./ooosssso++osssssso+`        WM Theme: TrueMinimalist
-        .oossssso-````/ossssss+`       GTK Theme: Adwaita [GTK2]
-       -osssssso.      :ssssssso.      Icon Theme: gnome
-      :osssssss/        osssso+++.     Font: Sans 10
-     /ossssssss/        +ssssooo/-     CPU: Intel Core i7-5500U CPU @ 2.394GHz
+                `+oooo:                Kernel: x86_64 Linux 4.5.4-1-ARCH
+               `+oooooo:               Uptime: 44m
+               -+oooooo+:              Packages: 467
+             `/:-:++oooo+:             Shell: zsh 5.2
+            `/++++/+++++++:            Resolution: 3200x1800
+           `/++++++++++++++:           WM: bspwm
+          `/+++ooooooooooooo/`         CPU: Intel Core i7-5500U CPU @ 2.394GHz
+         ./ooosssso++osssssso+`        RAM: 655MiB / 3956MiB
+        .oossssso-````/ossssss+`      
+       -osssssso.      :ssssssso.     
+      :osssssss/        osssso+++.    
+     /ossssssss/        +ssssooo/-    
+   `/ossssso+/:-        -:/+osssso+-  
+  `+sso+:-`                 `.-/+oso: 
+ `++:.                           `-/+/
+ .`                                 `/
+```
