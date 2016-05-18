@@ -19,3 +19,40 @@ Add a desktop to bspwm if it only has one:
   Then, super+{1,9} to switch desktops
   Use super+shift+{1,9} to move the focussed node to the selected desktop
   Be careful because super+shift+4 is my way of pressing alt+f4 in a vm
+  
+rxvt-unicode:
+	C-M-c to copy
+	C-M-v to paste
+
+vim:
+	:q to exit
+	:q! to force exit
+	:qw to save and exit
+	:PlugInstall to install new plugins
+	add plugins to ~/.vimrc
+	I have vim-go, neocomplete.vim, and tagbar installed
+	:so $MYVIMRC to reload .vimrc and get syntax highlighting nice
+
+emacs:
+	emacs filename -nw to use in terminal
+	C-x 3 to split file vertically
+	C-x 2 to split file horizontally
+	C-x 1 to return to original file
+	C-x o to switch between windows
+	C-x C-c to save
+	C-x C-c to exit
+
+time:
+	date +%x\ %r to output date and time nicely installed
+
+aliases:
+	nbspwm opens my bspwmrc file in nano
+	nsxhkd opens my sxhkdrc file in nano
+
+bspwmrc:
+	I recently made my termstyle program always open as a floating window
+		using bspc rule -a Termstyle state=floating
+	I found the name of the window using xprops (the WM_CLASS token)
+
+time:
+	date +%x\ %r to output date and time nicely
