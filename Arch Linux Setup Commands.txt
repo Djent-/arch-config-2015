@@ -41,7 +41,7 @@ sudo dhcpcd
 sudo pacman -S alsa-utils
 sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa ttf-dejavu samba smbclient networkmanager 
     networkmanager-vpnc networkmanager-pptp networkmanager-openconnect network-manager-applet 
-    gvfs gvfs-smb sshfs git go bspwm sxhkd dmenu
+    gvfs gvfs-smb sshfs git go bspwm sxhkd dmenu vim
 # previous installs x window system, fonts, network stuff > 500MB installed
 sudo systemctl enable NetworkManager
 lspci -k | grep -A 2 -i "VGA" 					# show graphics card sanity check
@@ -68,6 +68,7 @@ mkdir go
 go get github.com/nsf/termbox-go
 go install github.com/djent-/go-diags
 
+install vim plugins - vim-go, neocomplete, tagbar
 Install stylish and Twily's powerline firefox
 install scite and custom theme
 Setup GOPATH and add it to PATH
