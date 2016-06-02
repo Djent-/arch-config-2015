@@ -1,23 +1,22 @@
-Arch install/config steps
+# Arch install/config steps
 
-Boot fresh VM
+# Boot fresh VM
 ip link
 systemctl restart dhcpcd.service
 timedatectl set-ntp true
-timedatectl status
 lsblk
 parted /dev/sda
-mklabel msdos
-mkpart primary ext4 1MiB 100%
-quit
+# mklabel msdos
+# mkpart primary ext4 1MiB 100%
+# quit
 lsblk /dev/sda
 mkfs.ext4 /dev/sda1
 mount /dev/sda1 /mnt
 pacstrap -i /mnt base base-devel
 genfstab -U /mnt > /mnt/etc/fstab
-cat /mnt/etc/fstab
 arch-chroot /mnt /bin/bash
-nano /etc/locale.gen			# uncomment en_US.UTF-8 UTF-8
+# uncomment en_US.UTF-8 UTF-8
+nano /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -25,32 +24,74 @@ hwclock --systohc --utc
 pacman -S grub os-prober
 grub-install --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-echo workstation > /etc/hostname	# choose a hostname for your vm
-nano /etc/hosts						# add hostname after localhost
+# choose a hostname for your vm
+echo workstation > /etc/hostname
+# add hostname after localhost
+nano /etc/hosts
 systemctl enable dhcpcd@eth0.service
-passwd								# set root password
+# set root password
+passwd
 useradd -m -g users -G wheel,storage,power -s /bin/bash [username]
 passwd [username]
 pacman -S sudo
-EDITOR=nano visudo					# uncomment %wheel ALL=(ALL) ALL
+# uncomment %wheel ALL=(ALL) ALL
+EDITOR=nano visudo
 exit
 umount -R /mnt
 reboot
-login as non-root user
+
+# Login as non-root user
 sudo dhcpcd
-sudo pacman -S alsa-utils
-sudo pacman -S xorg-server xorg-xinit xorg-server-utils mesa ttf-dejavu samba smbclient networkmanager networkmanager-vpnc networkmanager-pptp networkmanager-openconnect network-manager-applet gvfs gvfs-smb sshfs
-# previous installs x window system, fonts, network stuff > 500MB installed
-sudo systemctl enable NetworkManager
-lspci -k | grep -A 2 -i "VGA" 					# show graphics card
-sudo pacman -S virtualbox-guest-utils			# for virtualbox only
-sudo pacman -S xf86-video-vmware xf85-input-vmmouse # for vmware only
-sudo pacman -S bspwm sxhkd dmenu
-nano .xinitrc						# add sxhkd & \n exec bspwm to default (look it up)
+# Anything else I need is installed as a dependency of these
+sudo pacman -S xorg-xinit ttf-dejavu git go vim alsa-utils rxvt-unicode zsh ranger w3m gtk3 virtualbox-guest-utils
+
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.xinitrc > .xinitrc
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.Xresources > .Xresources
+xrdb -merge ~/.Xresources
+
 mkdir .config
-mkdir .config/bspwm
-mkdir .config/sxhkd
-nano .config/bspwm/bspwmrc						# add bspwm config
-nano .config/sxhkd/sxhkdrc						# add sxhkd config
-sudo pacman -S firefox rxvt-unicode zsh ranger
-sudo pacman -S mpd mpc ncmpcpp			# music player + etc
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/scope.sh > ~/.config/ranger/scope.sh
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/rc.conf > ~/.config/ranger/rc.conf
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.zshrc > ~/.zshrc
+
+mkdir build
+mkdir build/repos
+
+mkdir .nano
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.nanorc > ~/.nanorc
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/go.nanorc > ~/.nano/go.nanorc
+
+mkdir ~/go
+mkdir ~/go/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+go get github.com/nsf/termbox-go
+go get github.com/gotk3/gotk3/gtk
+go get github.com/djent-/go-diags
+go get github.com/djent-/go-termstyle
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl https://raw.githubusercontent.com/Djent-/arch-config-2015/2016/.vimrc > ~/.vimrc
+# run vim then run :PlugInstall
+
+git clone https://aur.archlinux.org/neofetch.git
+cd neofetch
+makepkg -sri
+cd ..
+cd build/repos
+git clone https://aur.archlinux.org/ncompress.git
+cd ncompress
+makepkg -sri
+cd ..
+git clone https://aur.archlinux.org/cdesktopenv.git
+cd cdesktopenv
+makepkg -sri
+
+# Set rpcbind to insecure mode
+echo 'OPTIONS="${OPTIONS} -i"' > /etc/default/rpcbind
+echo 'RPCBIND_ARGS="-i"' > /etc/conf.d/rpcbind
+sudo systemctl restart rpcbind
+sudo systemctl start dtlogin
