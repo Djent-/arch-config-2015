@@ -91,6 +91,7 @@ cd cdesktopenv
 makepkg -sri
 
 # Set rpcbind to insecure mode
+# This file at least needs privileges to be edited - check to make sure it's set
 echo 'OPTIONS="${OPTIONS} -i"' > /etc/default/rpcbind
 echo 'RPCBIND_ARGS="-i"' > /etc/conf.d/rpcbind
 sudo systemctl restart rpcbind
