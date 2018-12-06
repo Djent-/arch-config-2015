@@ -1,0 +1,31 @@
+sudo apt update && sudo apt dist-upgrade -y
+
+sudo apt install xinit herbstluftwm
+mkdir -p .config/herbstluftwm
+cp /etc/xdg/herbstluftwm/autostart ~./config/herbstluftwm/
+
+# suckless-tools for dmenu
+# x11-xserver-utils for xrandr and xrdb
+sudo apt install suckless-tools zsh feh x11-xserver-utils
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/djent-/arch-config-2015/
+cd arch-config-2015
+git checkout herbstluftwm
+
+# echo feh --bg-scale "/home/water/arch-config-2015/winvape_05.png" > ~/.config/herbstluftwm/autostart
+# echo xrdb -merge ~/.Xresources > ~/.config/herbstluftwm/autostart
+
+sudo apt install nautilus ttf-dejavu
+
+# .Xresources font changes
+# Change rxvt*blah to *.blah
+# XTerm.vt100.fontName: DejaVu Sans Mono:size=10
+
+sudo dpkg-reconfigure tzdata
+# set timezone
+
+sudo apt install virtualbox-guest-utils virtualbox-guest-dkms
+sudo /usr/sbin -a -G vboxsf water
+
+# Figure out what to do with touchpad window resizing
